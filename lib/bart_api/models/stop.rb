@@ -31,5 +31,6 @@ module Bart
     attribute :attraction
 
     primary_attribute :abbr
+    alias_method :id, :abbr
   end
 end

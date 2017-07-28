@@ -15,7 +15,6 @@ module Bart
     attribute :direction
     
     attribute :config
-    alias_method :stations, :config
 
     primary_attribute :id
   end

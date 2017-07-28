@@ -14,7 +14,8 @@ module Bart
     # The defaults to use for any configuration options that are not provided
     DEFAULT_CONFIGURATION = {
       adapter: :httparty,
-      debug_output: false
+      debug_output: false,
+      base_uri: 'http://api.bart.gov'
     }
 
     # The options required when configuring a Bart instance

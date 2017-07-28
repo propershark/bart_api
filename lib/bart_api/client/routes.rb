@@ -1,5 +1,3 @@
-require 'nokogiri'
-
 module Bart
   class Client::Routes < API
     extend Memoist
