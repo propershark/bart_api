@@ -84,4 +84,6 @@ end
 
 # Include all model subclasses
 require_relative 'models/route'
+require_relative 'models/arrival'
+require_relative 'models/destination'
 require_relative 'models/stop'

@@ -30,6 +30,10 @@ module Bart
     attribute :shopping
     attribute :attraction
 
+    # Estimates from the `etd` endpoint
+    attribute :etd, type: Bart::Destination, array: true
+    alias_method :estimates, :etd
+
     primary_attribute :abbr
     alias_method :id, :abbr
   end
