@@ -11,7 +11,8 @@ module Bart
     def get stop_id, platform: nil, direction: nil
       @memo ||= {}
       model, stored_at = @memo[[stop_id, platform, direction]]
-      return model if stored_at && Time.now - RESOLUTION < stored_at
+      return model if stored_at && 
+        Time.now - Bart.configuration.refresh_time < stored_at
 
       parsed = get_request '/api/etd.aspx', query: { 
         cmd: :etd, 
@@ -19,6 +20,13 @@ module Bart
         plat: platform,
         dir: direction
       }.select { |_,v| v != nil }
+
+      parsed['root']['station'].tap do |station|
+        station['etd'] = [station['etd']].flatten
+        station['etd'].each do |etd|
+          etd['estimate'] = [etd['estimate']].flatten
+        end
+      end
 
       model = Stop.new parsed['root']['station']
       @memo[[stop_id, platform, direction]] = [model, Time.now]

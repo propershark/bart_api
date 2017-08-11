@@ -1,6 +1,6 @@
 module Bart
   class Arrival < Model
-    attribute :minutes, type: Integer
+    attribute :minutes
     attribute :platform, type: Integer
     attribute :direction
     attribute :length, type: Integer
