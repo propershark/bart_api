@@ -65,7 +65,7 @@ module Bart
     # be converted to snake_case for consistency.
     def assign args={}
       args.each do |_name, value|
-        public_send("#{_name.underscore}=", value)
+        public_send("#{_name.underscore}=", value) if respond_to? "#{_name.underscore}="
       end
     end
 
