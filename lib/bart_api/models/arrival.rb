@@ -8,5 +8,6 @@ module Bart
     attribute :color
     attribute :hexcolor
     attribute :bikeflag, type: Integer
+    attribute :delay, type: Integer
   end
 end
